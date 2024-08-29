@@ -7,10 +7,7 @@ This repository provides a snapshot of source codes that are utilized to produce
 
 
 
-
-
 ## Dataset
-- - - 
 
 ### Raw Dataset
 A raw dataset is saved in directory ```../data/raw/``` as `.txt` format.
@@ -29,7 +26,7 @@ For user convenience, we saved consolidated lookup tables under ```../data/commo
 
 
 ## Replications
-- - - 
+
 Below is a brief description on how to replicate the computational results presented in the paper.
 
 For experiment identification, we denote each attributes as follows:
@@ -75,7 +72,6 @@ A single experiment will be conducted with the assigned experiment settings, sav
 
 
 ## Results
-- - - 
 
 This directory contains the entire set of result files that are reported in our paper.
 Each subdirectory corresponds to a different type of result files, while the file name shares a common naming format including the information of each experiment:
