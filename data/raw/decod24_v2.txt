@@ -1,0 +1,28 @@
+# Function: decod24
+# Note: Embedding with constants 10
+# This file have been taken from RevLib (www.revlib.org).
+.version 1.0
+.numvars 4
+.variables a b c d
+.inputs 1 0 c d
+.outputs a b c d
+.constants 10--
+.garbage ----
+.begin
+----
+----
+----
+----
+----
+----
+----
+----
+0001
+0010
+0100
+1000
+----
+----
+----
+----
+.end

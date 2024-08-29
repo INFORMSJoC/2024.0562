@@ -1,0 +1,45 @@
+# Function: 4gt4-v0
+# Checks, if input is greater than 4.
+# Note: Embedding with constant 0.
+# This file have been taken from RevLib (www.revlib.org).
+.version 1.0
+.numvars 5
+.variables a b c d e
+.inputs 0 b c d e
+.outputs g g g g f
+.constants 0----
+.garbage 1111-
+.begin
+----0
+----0
+----0
+----0
+----0
+----1
+----1
+----1
+----1
+----1
+----1
+----1
+----1
+----1
+----1
+----1
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+.end

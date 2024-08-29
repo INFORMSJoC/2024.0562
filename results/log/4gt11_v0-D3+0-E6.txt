@@ -1,0 +1,108 @@
+***** Experiment Info: 20211024-1609-FINALEXP
+Changed value of parameter TimeLimit to 7200.0
+   Prev: inf  Min: 0.0  Max: inf  Default: inf
+Changed value of parameter Method to 2
+   Prev: -1  Min: -1  Max: 5  Default: -1
+Changed value of parameter NodeMethod to 1
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter DegenMoves to 0
+   Prev: -1  Min: -1  Max: 2000000000  Default: -1
+Changed value of parameter SubMIPNodes to 20
+   Prev: 500  Min: 0  Max: 2000000000  Default: 500
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter Precrush to 1
+   Prev: 0  Min: 0  Max: 1  Default: 0
+Changed value of parameter Heuristics to 0.0
+   Prev: 0.05  Min: 0.0  Max: 1.0  Default: 0.05
+Changed value of parameter Cuts to 0
+   Prev: -1  Min: -1  Max: 3  Default: -1
+Changed value of parameter Cuts to -1
+   Prev: 0  Min: -1  Max: 3  Default: -1
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (mac64)
+Thread count: 8 physical cores, 16 logical processors, using up to 16 threads
+Optimize a model with 2419 rows, 2064 columns and 11510 nonzeros
+Model fingerprint: 0x950dffb9
+Variable types: 1920 continuous, 144 integer (144 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 4e+00]
+  Objective range  [1e+00, 3e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+01]
+Variable types: 1824 continuous, 240 integer (144 binary)
+Root barrier log...
+
+Ordering time: 0.05s
+
+Barrier statistics:
+ AA' NZ     : 6.126e+04
+ Factor NZ  : 4.214e+05 (roughly 5 MBytes of memory)
+ Factor Ops : 1.151e+08 (less than 1 second per iteration)
+ Threads    : 8
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   5.56119717e+02 -1.42720807e+02  1.19e+02 0.00e+00  1.86e+00     0s
+   1   6.34725632e+01 -3.68815231e+02  9.43e+00 2.83e-15  1.97e-01     0s
+   2   1.97954739e+01 -1.36871904e+02  1.49e+00 3.89e-15  4.15e-02     0s
+   3   3.77267431e+00 -2.49404699e+01  9.99e-02 3.55e-15  5.55e-03     0s
+   4   3.16786057e+00  2.54101086e+00  1.55e-03 7.11e-15  1.15e-04     0s
+   5   3.00022768e+00  2.99952552e+00  5.46e-07 3.55e-15  1.22e-07     0s
+   6   3.00000026e+00  2.99999953e+00  8.70e-11 7.11e-15  1.25e-10     0s
+   7   3.00000000e+00  3.00000000e+00  2.70e-13 1.07e-14  8.97e-16     0s
+
+Barrier solved model in 7 iterations and 0.11 seconds
+Optimal objective 3.00000000e+00
+
+
+     261 Dual superbasic variables remain
+
+Root relaxation: objective 3.000000e+00, 820 iterations, 0.13 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    3.00000    0  123          -    3.00000      -     -    0s
+*** 72 cut added...
+     0     0    3.00000    0  125          -    3.00000      -     -    0s
+*** 90 cut added...
+     0     0    3.00000    0  123          -    3.00000      -     -    0s
+*** 56 cut added...
+     0     0    3.00000    0  123          -    3.00000      -     -    0s
+*** 96 cut added...
+     0     0    3.00000    0  123          -    3.00000      -     -    0s
+*** 62 cut added...
+     0     0    3.00000    0  123          -    3.00000      -     -    0s
+*** 82 cut added...
+     0     0    3.00000    0  123          -    3.00000      -     -    0s
+*** 67 cut added...
+     0     2    3.00000    0  123          -    3.00000      -     -    0s
+*** 75 cut added...
+*** 97 cut added...
+*** 112 cut added...
+*    7     6               3       7.0000000    3.00000  57.1%   506    0s
+*** 126 cut added...
+*** 127 cut added...
+*** 130 cut added...
+
+Cutting planes:
+  Cover: 13
+  Implied bound: 53
+  Clique: 9
+  MIR: 3
+  Flow cover: 6
+  Zero half: 3
+  RLT: 42
+  Relax-and-lift: 1
+
+Explored 27 nodes (9083 simplex iterations) in 0.78 seconds
+Thread count was 16 (of 16 available processors)
+
+Solution count 1: 7 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 7.000000000000e+00, best bound 7.000000000000e+00, gap 0.0000%
+
+User-callback calls 328, time in user-callback 0.00 sec
+Maximum cut handled : 130
+Total user cut in the cutpool : 0

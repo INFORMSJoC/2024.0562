@@ -1,0 +1,28 @@
+# Function: 1-bit adder/rd32
+# Note: Embedding with constant 1
+# This file have been taken from RevLib (www.revlib.org).
+.version 1.0
+.numvars 4
+.variables a b c d
+.inputs a b c 1
+.outputs g g c d
+.constants ---1
+.garbage 11--
+.begin
+----
+--00
+----
+--10
+----
+--10
+----
+--01
+----
+--10
+----
+--01
+----
+--01
+----
+--11
+.end

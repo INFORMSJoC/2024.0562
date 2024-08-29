@@ -1,0 +1,44 @@
+# Function: 4mod7-v0
+# Note: Embedding with constant 0.
+# This file have been taken from RevLib (www.revlib.org). 
+.version 1.0
+.numvars 5
+.variables a b c d e
+.inputs 0 b c d e
+.outputs g g c d e
+.constants 0----
+.garbage 11---
+.begin
+--000
+--001
+--010
+--011
+--100
+--101
+--110
+--000
+--001
+--010
+--011
+--100
+--101
+--110
+--000
+--001
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+-----
+.end

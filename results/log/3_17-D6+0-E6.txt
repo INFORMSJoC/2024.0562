@@ -1,0 +1,128 @@
+***** Experiment Info: 20211023-1627-FINALEXP
+Changed value of parameter TimeLimit to 18000.0
+   Prev: inf  Min: 0.0  Max: inf  Default: inf
+Changed value of parameter Method to 2
+   Prev: -1  Min: -1  Max: 5  Default: -1
+Changed value of parameter NodeMethod to 1
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter DegenMoves to 0
+   Prev: -1  Min: -1  Max: 2000000000  Default: -1
+Changed value of parameter SubMIPNodes to 20
+   Prev: 500  Min: 0  Max: 2000000000  Default: 500
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter Precrush to 1
+   Prev: 0  Min: 0  Max: 1  Default: 0
+Changed value of parameter Heuristics to 0.0
+   Prev: 0.05  Min: 0.0  Max: 1.0  Default: 0.05
+Changed value of parameter Cuts to 0
+   Prev: -1  Min: -1  Max: 3  Default: -1
+Changed value of parameter Cuts to -1
+   Prev: 0  Min: -1  Max: 3  Default: -1
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (mac64)
+Thread count: 8 physical cores, 16 logical processors, using up to 16 threads
+Optimize a model with 1235 rows, 1775 columns and 8341 nonzeros
+Model fingerprint: 0xc46e5fb9
+Variable types: 1664 continuous, 111 integer (111 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 6e+00]
+  Objective range  [1e+00, 5e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+00]
+Variable types: 1600 continuous, 175 integer (111 binary)
+Root barrier log...
+
+Ordering time: 0.01s
+
+Barrier statistics:
+ AA' NZ     : 1.580e+04
+ Factor NZ  : 1.172e+05 (roughly 2 MBytes of memory)
+ Factor Ops : 1.580e+07 (less than 1 second per iteration)
+ Threads    : 8
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   6.98332466e+01 -3.42369088e+01  1.21e+01 0.00e+00  2.42e-01     0s
+   1   1.52897687e+01 -3.18057053e+01  1.13e+00 3.89e-16  3.06e-02     0s
+   2   6.90348599e+00 -6.40787001e-01  1.25e-01 5.58e-15  3.56e-03     0s
+   3   6.03407063e+00  5.75260800e+00  4.49e-03 5.88e-15  1.20e-04     0s
+   4   6.00002852e+00  5.99975352e+00  5.95e-07 7.74e-15  7.34e-08     0s
+   5   6.00000000e+00  6.00000000e+00  7.24e-13 4.95e-15  7.65e-14     0s
+
+Barrier solved model in 5 iterations and 0.02 seconds
+Optimal objective 6.00000000e+00
+
+
+     352 Dual superbasic variables remain
+
+Root relaxation: objective 6.000000e+00, 493 iterations, 0.03 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    6.00000    0   88          -    6.00000      -     -    0s
+*** 68 cut added...
+     0     0    6.00000    0   85          -    6.00000      -     -    0s
+*** 46 cut added...
+     0     0    6.00000    0   86          -    6.00000      -     -    0s
+*** 40 cut added...
+     0     0    6.00000    0   86          -    6.00000      -     -    0s
+*** 43 cut added...
+     0     0    6.00000    0   86          -    6.00000      -     -    0s
+*** 42 cut added...
+     0     2    6.00000    0   86          -    6.00000      -     -    0s
+*** 44 cut added...
+*** 48 cut added...
+*** 49 cut added...
+*** 50 cut added...
+*** 53 cut added...
+*** 54 cut added...
+*** 56 cut added...
+*   78    35               7      14.0000000    6.00000  57.1%   198    0s
+*** 57 cut added...
+*** 59 cut added...
+*** 60 cut added...
+*** 62 cut added...
+*** 64 cut added...
+*** 65 cut added...
+*** 66 cut added...
+*** 67 cut added...
+*** 69 cut added...
+*** 70 cut added...
+*** 71 cut added...
+*** 76 cut added...
+*** 77 cut added...
+*** 79 cut added...
+*** 81 cut added...
+*** 82 cut added...
+*** 84 cut added...
+*** 85 cut added...
+*** 86 cut added...
+*** 87 cut added...
+*** 88 cut added...
+*** 89 cut added...
+*** 90 cut added...
+*** 91 cut added...
+*** 92 cut added...
+
+Cutting planes:
+  Gomory: 2
+  Cover: 9
+  Implied bound: 43
+  Clique: 6
+  Flow path: 5
+  Inf proof: 1
+  Zero half: 2
+  RLT: 24
+
+Explored 1137 nodes (126139 simplex iterations) in 1.41 seconds
+Thread count was 16 (of 16 available processors)
+
+Solution count 1: 14 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.400000000000e+01, best bound 1.400000000000e+01, gap 0.0000%
+
+User-callback calls 2507, time in user-callback 0.00 sec
+Maximum cut handled : 92
+Total user cut in the cutpool : 0

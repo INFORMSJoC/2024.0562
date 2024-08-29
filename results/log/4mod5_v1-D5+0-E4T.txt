@@ -1,0 +1,98 @@
+***** Experiment Info: 20211024-1609-FINALEXP
+Changed value of parameter TimeLimit to 7200.0
+   Prev: inf  Min: 0.0  Max: inf  Default: inf
+Changed value of parameter Method to 2
+   Prev: -1  Min: -1  Max: 5  Default: -1
+Changed value of parameter NodeMethod to 1
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter DegenMoves to 0
+   Prev: -1  Min: -1  Max: 2000000000  Default: -1
+Changed value of parameter SubMIPNodes to 20
+   Prev: 500  Min: 0  Max: 2000000000  Default: 500
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter Precrush to 1
+   Prev: 0  Min: 0  Max: 1  Default: 0
+Changed value of parameter Heuristics to 0.0
+   Prev: 0.05  Min: 0.0  Max: 1.0  Default: 0.05
+Changed value of parameter Cuts to 0
+   Prev: -1  Min: -1  Max: 3  Default: -1
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (mac64)
+Thread count: 8 physical cores, 16 logical processors, using up to 16 threads
+Optimize a model with 3635 rows, 3310 columns and 18591 nonzeros
+Model fingerprint: 0x92db5ecd
+Variable types: 3072 continuous, 238 integer (238 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 5e+00]
+  Objective range  [1e+00, 3e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+01]
+Variable types: 2976 continuous, 334 integer (238 binary)
+Root barrier log...
+
+Ordering time: 0.06s
+
+Barrier statistics:
+ AA' NZ     : 9.484e+04
+ Factor NZ  : 6.322e+05 (roughly 8 MBytes of memory)
+ Factor Ops : 1.687e+08 (less than 1 second per iteration)
+ Threads    : 8
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   7.43260750e+02 -2.53772658e+02  9.52e+01 0.00e+00  1.38e+00     0s
+   1   1.34922642e+02 -5.41307331e+02  1.14e+01 1.94e-15  2.04e-01     0s
+   2   3.02623068e+01 -1.36324611e+02  1.16e+00 7.11e-15  2.67e-02     0s
+   3   6.22828312e+00 -1.67292585e+01  1.17e-01 5.70e-15  2.98e-03     0s
+   4   5.05313889e+00  4.76412064e+00  2.51e-03 7.11e-15  4.01e-05     0s
+   5   5.00005423e+00  4.99976459e+00  1.39e-07 3.66e-15  3.15e-08     0s
+   6   5.00000017e+00  4.99999925e+00  4.43e-10 7.11e-15  9.99e-11     0s
+   7   5.00000000e+00  5.00000000e+00  2.90e-13 3.55e-15  1.70e-15     0s
+
+Barrier solved model in 7 iterations and 0.14 seconds
+Optimal objective 5.00000000e+00
+
+
+     266 Dual superbasic variables remain
+
+Root relaxation: objective 5.000000e+00, 1798 iterations, 0.20 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    5.00000    0  207          -    5.00000      -     -    0s
+*** 18 cut added...
+     0     0    5.00000    0  207          -    5.00000      -     -    0s
+*** 10 cut added...
+*** 16 cut added...
+     0     2    5.00000    0  207          -    5.00000      -     -    0s
+*** 17 cut added...
+*** 19 cut added...
+*** 20 cut added...
+*** 21 cut added...
+*** 22 cut added...
+*** 24 cut added...
+*** 25 cut added...
+*** 26 cut added...
+*  342   173              13       9.0000000    5.00000  44.4%   377    4s
+*** 27 cut added...
+  1420   124    5.00000    8   35    9.00000    5.00000  44.4%   131    5s
+*** 28 cut added...
+  6552   105    5.00000   14   73    9.00000    5.00000  44.4%  88.1   10s
+ 10004   118    5.00000    8  143    9.00000    5.00000  44.4%  91.0   15s
+ 15112    13    5.00000   16  107    9.00000    5.00000  44.4%  88.3   20s
+
+Cutting planes:
+  User: 28
+
+Explored 15718 nodes (1377322 simplex iterations) in 20.41 seconds
+Thread count was 16 (of 16 available processors)
+
+Solution count 1: 9 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 9.000000000000e+00, best bound 9.000000000000e+00, gap 0.0000%
+
+User-callback calls 31990, time in user-callback 0.05 sec
+Maximum cut handled : 28
+Total user cut in the cutpool : 136

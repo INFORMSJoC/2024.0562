@@ -1,0 +1,44 @@
+# Function: mod5d1
+# Note: completely specified
+# This file have been taken from RevLib (www.revlib.org).
+.version 1.0
+.numvars 5
+.variables a b c d e
+.inputs a b c d e
+.outputs a b c d e
+.constants -----
+.garbage -----
+.begin
+00000
+00001
+00011
+00010
+00101
+00100
+00111
+00110
+01001
+01000
+01010
+01011
+01101
+01100
+01111
+01110
+10001
+10000
+10011
+10010
+10100
+10101
+10111
+10110
+11001
+11000
+11011
+11010
+11101
+11100
+11110
+11111
+.end

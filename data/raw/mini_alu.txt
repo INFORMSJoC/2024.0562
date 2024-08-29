@@ -1,0 +1,28 @@
+# Function: mini_alu-v0
+# Note: Embedding without constant inputs.
+# This file have been taken from RevLib (www.revlib.org). 
+.version 1.0
+.numvars 4
+.variables a b c d
+.inputs a b c d
+.outputs g g c d
+.constants ----
+.garbage 11--
+.begin
+--00
+--01
+--10
+--11
+---0
+---1
+---1
+---1
+---0
+---0
+---0
+---1
+--00
+--01
+--01
+--10
+.end
