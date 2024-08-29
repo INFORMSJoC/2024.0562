@@ -1,51 +1,74 @@
-from os.path import join
+import os
 import pickle
+import argparse
+from utils import *
 from gurobipy import *
-from gurobipy import GRB
-import scripts.misc_helpers as MH
+_model_type, _func, _extra_d = None, None, None
 
 
-def ModelGenerator(modeltype, func, extraD):
+def model_setting():
+    global _model_type, _func, _extra_d
+    parser = argparse.ArgumentParser(description="Set model type, function, and extra gates")
 
-    with open('../data/common/F-SM-INFO.p', 'rb') as f:
+    # Adding arguments
+    parser.add_argument('--func', type=str, help="Function name")
+    parser.add_argument('--model_type', type=str, help="Extra gates")
+    parser.add_argument('--extra_d', type=int, help="Configuration ID")
+
+    # Parsing arguments
+    args = parser.parse_args()
+
+    # Accessing variables
+    _model_type = args.model_type
+    _func = args.func
+    _extra_d = args.extra_d
+
+    # Print or use the variables as needed
+    print(f"Model type: {_model_type}")
+    print(f"Function: {_func}")
+    print(f"Extra Gates: {_extra_d}")
+
+
+def model_generator(model_type: str, func: str, extra_d: int):
+    with open(os.path.join(os.getcwd(), 'data/common/func_attrs.p'), 'rb') as f:
         FIdict = pickle.load(f)
     NQ = FIdict[func]['NQ']
     NK = FIdict[func]['NK']
     NCBS = int(pow(2, NQ))
-    MinD = FIdict[func]['MinD']
-    ND = MinD + extraD
+    min_d = FIdict[func]['MinD']
+    ND = min_d + extra_d
 
     CBS = [('{0:0%sb}' % NQ).format(i) for i in range(NCBS)]
     Q = [i for i in range(1, NQ + 1)]
     D = [i for i in range(1, ND + 1)]
     K = [i for i in range(1, NK + 1)]
 
-    with open('../data/common/F-TLPQcoeff.p', 'rb') as f:
-        TLPQdict = pickle.load(f)
-    with open('../data/pckl/%s.p' % func, 'rb') as f:
-        NWRHSdict = pickle.load(f)
+    with open(os.path.join(os.getcwd(), 'data/common/func_coeffs.p'), 'rb') as f:
+        psp_coeffs_dict = pickle.load(f)
+    with open(os.path.join(os.getcwd(), 'data/processed/%s.p') % func, 'rb') as f:
+        proc_data_dict = pickle.load(f)
 
-    P = TLPQdict[func]
-    TARGET_DICT = NWRHSdict['TARGETDICT']
-    CBS2COMMODITY_DICT = NWRHSdict['CBS2COMDICT']
+    P = psp_coeffs_dict[func]
+    target_dict = proc_data_dict['TARGETDICT']
+    cbs2com_dict = proc_data_dict['CBS2COMDICT']
 
     # Model parameter b
     uS, uT, b = {}, {}, {}  # (sigma, k):value of b
     for sigma in CBS:
         uS[sigma] = {}
         for k in K:
-            if TARGET_DICT[sigma] == k:
+            if target_dict[sigma] == k:
                 uS[sigma][k] = 1
             else:
                 uS[sigma][k] = 0
     for sigma in CBS:
         uT[sigma] = {}
         for k in K:
-            if k in CBS2COMMODITY_DICT[sigma]:
+            if k in cbs2com_dict[sigma]:
                 uT[sigma][k] = 1
             else:
                 uT[sigma][k] = 0
-    for k in K: b[k] = list(TARGET_DICT.values()).count(k)
+    for k in K: b[k] = list(target_dict.values()).count(k)
 
     # Set a model
     m = Model()
@@ -61,7 +84,7 @@ def ModelGenerator(modeltype, func, extraD):
                 x[sigma, sigma, k, d] = m.addVar(vtype=GRB.CONTINUOUS, ub=1.0,
                                                  name="x_%s,%s,K%s,D%s" % (sigma, sigma, k, d))
                 for j in Q:
-                    pi = MH.Hdist1(sigma, j)
+                    pi = add_unit_hdist(sigma, j)
                     x[sigma, pi, k, d] = m.addVar(vtype=GRB.CONTINUOUS, ub=1.0,
                                                   name="x_%s,%s,K%s,D%s" % (sigma, pi, k, d))
     for sigma in CBS:
@@ -102,17 +125,17 @@ def ModelGenerator(modeltype, func, extraD):
     for sigma in CBS:
         for k in K:
             m.addConstr(
-                x['S', sigma, k, 0] == x[sigma, sigma, k, 1] + quicksum(x[sigma, MH.Hdist1(sigma, j), k, 1] for j in Q),
+                x['S', sigma, k, 0] == x[sigma, sigma, k, 1] + quicksum(x[sigma, add_unit_hdist(sigma, j), k, 1] for j in Q),
                 name="NWConsrv_%s,K%s,L%s" % (sigma, k, 0))
     for d in D[:-1]:
         for sigma in CBS:
             for k in K:
-                m.addConstr(x[sigma, sigma, k, d] + quicksum(x[MH.Hdist1(sigma, j), sigma, k, d] for j in Q) - x[sigma, sigma, k, d + 1]
-                            - quicksum(x[sigma, MH.Hdist1(sigma, j), k, d + 1] for j in Q) == 0,
+                m.addConstr(x[sigma, sigma, k, d] + quicksum(x[add_unit_hdist(sigma, j), sigma, k, d] for j in Q) - x[sigma, sigma, k, d + 1]
+                            - quicksum(x[sigma, add_unit_hdist(sigma, j), k, d + 1] for j in Q) == 0,
                             name="NWConsrv_%s,K%s,L%s" % (sigma, k, d))
     for sigma in CBS:
         for k in K:
-            m.addConstr(x[sigma, sigma, k, ND] + quicksum(x[MH.Hdist1(sigma, j), sigma, k, ND] for j in Q) == x[
+            m.addConstr(x[sigma, sigma, k, ND] + quicksum(x[add_unit_hdist(sigma, j), sigma, k, ND] for j in Q) == x[
                 sigma, 'T', k, ND + 1],
                         name="NWConsrv_%s,K%s,L%s" % (sigma, k, ND))
     for k in K:
@@ -135,7 +158,7 @@ def ModelGenerator(modeltype, func, extraD):
             m.addConstr(quicksum(x[sigma, sigma, k, d] for k in K) == xi[sigma, d],
                         name="NWCIR1_%s,%s,D%s" % (sigma, sigma, d))
             for j in Q:
-                pi = MH.Hdist1(sigma, j)
+                pi = add_unit_hdist(sigma, j)
                 m.addConstr(quicksum(x[sigma, pi, k, d] for k in K) <= 1 - xi[sigma, d],
                             name="NWCIR2a_%s,%s,Q%s,D%s" % (sigma, pi, j, d))
                 m.addConstr(quicksum(x[sigma, pi, k, d] for k in K) <= t[j, d],
@@ -145,21 +168,19 @@ def ModelGenerator(modeltype, func, extraD):
 
     for d in D:
         for sigma in CBS:
-            SigmaDict = MH.SigmaDict(sigma, NQ)
-            tmpM = len([j for j in Q if SigmaDict[j] == 0])
-            m.addConstr(xi[sigma, d] <= quicksum(w[j, d] for j in Q) - quicksum(w[j, d] * SigmaDict[j] for j in Q),
+            sigma_dict = create_sigma_dict(sigma, NQ)
+            tmpM = len([j for j in Q if sigma_dict[j] == 0])
+            m.addConstr(xi[sigma, d] <= quicksum(w[j, d] for j in Q) - quicksum(w[j, d] * sigma_dict[j] for j in Q),
                         name="CFTEST,L_CBS%s,D%s" % (sigma, d))
             try:
-                if modeltype == 'MS':
+                if model_type == 'MS':
                     for j in Q:
-                        if SigmaDict[j] == 0:
-                            m.addConstr(w[j, d] <= xi[sigma, d], name="CFTEST,R_CBS%s,D%s" % (sigma, d))
-                elif modeltype == 'MW':
-                    m.addConstr(quicksum(w[j, d] for j in Q) - quicksum(w[j, d] * SigmaDict[j] for j in Q) <= tmpM * xi[sigma, d], name="CFTEST,R_CBS%s,D%s" % (sigma, d))
+                        if sigma_dict[j] == 0:
+                            m.addConstr(w[j, d] <= xi[sigma, d], name="CFTEST,R_CBS%s,%s,D%s" % (sigma, j, d))
+                elif model_type == 'MW':
+                    m.addConstr(quicksum(w[j, d] for j in Q) - quicksum(w[j, d] * sigma_dict[j] for j in Q) <= tmpM * xi[sigma, d], name="CFTEST,R_CBS%s,D%s" % (sigma, d))
             except:
                 raise ("Model type error: None of MS or MW")
-
-
 
     for d in D:
         for j in Q:
@@ -178,9 +199,13 @@ def ModelGenerator(modeltype, func, extraD):
             m.addConstr(Tbar[1, j] <= P[j]['CHANGE'] + 1 - P[j]['REMAIN'])
 
     try:
-        PRJpath = "../models"
-        MODdir = join(PRJpath, "%s-%s-D%s+%s-test.mps" % (modeltype, func, MinD, extraD))
+        MODdir = os.path.join(os.getcwd(), "models", "%s-%s-D%s+%s-test.mps" % (model_type, func, min_d, extra_d))
         m.write(MODdir)
 
     except Exception as e:
         print("Error reported while saving the model as an mps file: ", e)
+
+
+if __name__ == '__main__':
+    model_setting()
+    model_generator(_model_type, _func, _extra_d)
