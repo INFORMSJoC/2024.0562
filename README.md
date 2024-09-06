@@ -1,10 +1,36 @@
-# 2024.0562
+[![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
 
+# A New Multicommodity Network Flow Model and Branch-and-Cut for Optimal Quantum Boolean Circuit Synthesis.
 
-This repository provides a snapshot of source codes that are utilized to produce the computational results presented in **Jung and Choi (2024)**.
+This archive is distributed in association with the [INFORMS Journal on
+Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
+ 
 
-> (_In press_) Jung, Jihye and In-Chan Choi. “A New Multicommodity Network Flow Model and Branch-and- Cut for Optimal Quantum Boolean Circuit Synthesis.” INFORMS Journal on Computing.
+**Important: This code is being developed on an on-going basis at 
+https://github.com/wisejung/QBCSP-BNC.git. Please go there if you would like to
+get a more recent version or would like support**
 
+## Cite
+
+To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
+
+https://doi.org/10.1287/ijoc.2024.0562
+
+https://doi.org/10.1287/ijoc.2024.0562.cd
+
+Below is the BibTex for citing this snapshot of the repository.
+
+```
+@misc{QBCSP-BNC,
+  author =        {Jung, jhiye and In-Chan Choi},
+  publisher =     {INFORMS Journal on Computing},
+  title =         {{QBCSP-BNC}},
+  year =          {2024},
+  doi =           {10.1287/ijoc.2024.0562.cd},
+  url =           {https://github.com/INFORMSJoC/2024.0562},
+  note =          {Available for download at https://github.com/INFORMSJoC/2024.0562},
+}  
+```
 
 
 ## Dataset
