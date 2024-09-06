@@ -22,7 +22,7 @@ Below is the BibTex for citing this snapshot of the repository.
 
 ```
 @misc{QBCSP-BNC,
-  author =        {Jung, jhiye and In-Chan Choi},
+  author =        {Jung, Jihye and In-Chan Choi},
   publisher =     {INFORMS Journal on Computing},
   title =         {{QBCSP-BNC}},
   year =          {2024},
