@@ -1,0 +1,148 @@
+***** Experiment Info: 20211024-1609-FINALEXP
+Changed value of parameter TimeLimit to 7200.0
+   Prev: inf  Min: 0.0  Max: inf  Default: inf
+Changed value of parameter Method to 2
+   Prev: -1  Min: -1  Max: 5  Default: -1
+Changed value of parameter NodeMethod to 1
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter DegenMoves to 0
+   Prev: -1  Min: -1  Max: 2000000000  Default: -1
+Changed value of parameter SubMIPNodes to 20
+   Prev: 500  Min: 0  Max: 2000000000  Default: 500
+Changed value of parameter Presolve to 0
+   Prev: -1  Min: -1  Max: 2  Default: -1
+Changed value of parameter Precrush to 1
+   Prev: 0  Min: 0  Max: 1  Default: 0
+Changed value of parameter Heuristics to 0.0
+   Prev: 0.05  Min: 0.0  Max: 1.0  Default: 0.05
+Changed value of parameter Cuts to 0
+   Prev: -1  Min: -1  Max: 3  Default: -1
+Gurobi Optimizer version 9.1.2 build v9.1.2rc0 (mac64)
+Thread count: 8 physical cores, 16 logical processors, using up to 16 threads
+Optimize a model with 5041 rows, 3148 columns and 19730 nonzeros
+Model fingerprint: 0xedac5c34
+Variable types: 2816 continuous, 332 integer (332 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 7e+00]
+  Objective range  [1e+00, 3e+01]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 2e+01]
+Variable types: 2752 continuous, 396 integer (332 binary)
+Root barrier log...
+
+Ordering time: 0.09s
+
+Barrier statistics:
+ AA' NZ     : 1.337e+05
+ Factor NZ  : 8.301e+05 (roughly 10 MBytes of memory)
+ Factor Ops : 2.059e+08 (less than 1 second per iteration)
+ Threads    : 8
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   9.85264722e+02 -2.49898030e+02  8.94e+01 0.00e+00  1.43e+00     0s
+   1   9.47544397e+01 -7.82433005e+02  5.43e+00 3.55e-15  1.49e-01     0s
+   2   3.19346028e+01 -1.94011386e+02  6.90e-01 7.11e-15  2.61e-02     0s
+   3   8.27975401e+00 -1.44394947e+01  6.84e-02 3.55e-15  2.35e-03     0s
+   4   7.06227550e+00  6.88292382e+00  3.40e-04 7.11e-15  1.79e-05     0s
+   5   7.00009690e+00  6.99988305e+00  1.91e-07 3.55e-15  2.09e-08     0s
+   6   7.00000005e+00  6.99999988e+00  1.07e-10 7.11e-15  1.66e-11     0s
+   7   7.00000000e+00  7.00000000e+00  2.52e-13 3.55e-15  2.10e-16     0s
+
+Barrier solved model in 7 iterations and 0.20 seconds
+Optimal objective 7.00000000e+00
+
+
+     180 Dual superbasic variables remain
+
+Root relaxation: objective 7.000000e+00, 1844 iterations, 0.27 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    7.00000    0  289          -    7.00000      -     -    0s
+     0     0    7.00000    0  289          -    7.00000      -     -    0s
+     0     2    7.00000    0  289          -    7.00000      -     -    0s
+    23    32    7.00000    4  214          -    7.00000      -  2772    5s
+   199   202    9.00000   16  119          -    7.00000      -  1319   12s
+  1173   328    7.00000   16   94          -    7.00000      -   437   15s
+  3471   527 infeasible   15               -    7.00000      -   253   20s
+  5825   686    7.00000    6  289          -    7.00000      -   201   38s
+  5830   692    7.00000   13  256          -    7.00000      -   202   42s
+  5832   696    7.00000   14  237          -    7.00000      -   203   47s
+  5836   702    7.00000   15  213          -    7.00000      -   206   50s
+  5892   746    7.00000   18  120          -    7.00000      -   226   55s
+  6040   746 infeasible   22               -    7.00000      -   253   60s
+  6458   630    7.00000   26  148          -    7.00000      -   302   65s
+  6920   476    7.00000   18  154          -    7.00000      -   346   71s
+  7270   346    7.00000   28  158          -    7.00000      -   371   75s
+  7878   231    7.00000   25  152          -    7.00000      -   396   80s
+  8745   289    7.00000   30  118          -    7.00000      -   419   87s
+  9536   329    7.00000   25  134          -    7.00000      -   427   91s
+ 10021   322 infeasible   25               -    7.00000      -   441   95s
+ 10405   393    7.00000   22  143          -    7.00000      -   456  100s
+ 11006   491 infeasible   24               -    7.00000      -   467  105s
+ 11662   477    7.00000   20  163          -    7.00000      -   478  111s
+ 12261   577    7.00000   30  158          -    7.00000      -   492  116s
+ 12649   613    7.00000   24  127          -    7.00000      -   497  120s
+ 13517   672    7.00000   21  148          -    7.00000      -   506  126s
+ 13848   685   13.00000   23  167          -    7.00000      -   512  130s
+ 14587   752 infeasible   29               -    7.00000      -   524  137s
+ 15059   798 infeasible   26               -    7.00000      -   529  140s
+*15339   798              28      15.0000000    7.00000  53.3%   531  140s
+ 16197   823    7.00000   20  168   15.00000    7.00000  53.3%   533  148s
+ 16610   827 infeasible   23        15.00000    7.00000  53.3%   539  152s
+ 17165   851    7.00000   26  118   15.00000    7.00000  53.3%   544  156s
+ 17783   871    7.00000   18  200   15.00000    7.00000  53.3%   546  161s
+ 18376   877    7.00000   26   51   15.00000    7.00000  53.3%   550  166s
+ 19135   896    7.00000   33  131   15.00000    7.00000  53.3%   551  171s
+ 19970   885    7.00000   32  147   15.00000    7.00000  53.3%   551  176s
+ 21061   895    9.00000   34  156   15.00000    7.00000  53.3%   548  182s
+ 22195   805 infeasible   33        15.00000    7.00000  53.3%   545  188s
+ 23425   788    7.00000   27  208   15.00000    7.00000  53.3%   541  194s
+ 24636   767    7.00000   31  161   15.00000    7.00000  53.3%   538  200s
+ 25814   758    7.00000   31  150   15.00000    7.00000  53.3%   535  205s
+ 26650   836    7.00000   21  134   15.00000    7.00000  53.3%   537  212s
+ 27637   864   11.80000   30  141   15.00000    7.00000  53.3%   539  218s
+ 29086   849    7.00000   33  174   15.00000    7.00000  53.3%   535  224s
+ 30464   870 infeasible   35        15.00000    7.00000  53.3%   529  230s
+ 31374   785    7.00000   31   84   15.00000    7.00000  53.3%   528  235s
+ 32863   774 infeasible   34        15.00000    7.00000  53.3%   522  241s
+ 33823   753 infeasible   28        15.00000    7.00000  53.3%   521  247s
+ 34929   762 infeasible   36        15.00000    7.00000  53.3%   520  253s
+ 36161   712    7.00000   31  103   15.00000    7.00000  53.3%   518  259s
+ 37492   734    7.00000   24  155   15.00000    7.00000  53.3%   516  266s
+ 38714   733 infeasible   29        15.00000    7.00000  53.3%   516  273s
+ 40174   737 infeasible   28        15.00000    7.00000  53.3%   514  280s
+ 41270   747 infeasible   31        15.00000    7.00000  53.3%   513  288s
+ 43139   690    7.00000   34  156   15.00000    7.00000  53.3%   510  296s
+ 44784   659    7.00000   28  141   15.00000    7.00000  53.3%   508  303s
+ 46385   648 infeasible   30        15.00000    7.00000  53.3%   506  312s
+ 48133   656    7.00000   30  136   15.00000    7.00000  53.3%   505  320s
+ 49806   614 infeasible   35        15.00000    7.00000  53.3%   503  330s
+ 51770   449 infeasible   32        15.00000    7.00000  53.3%   503  338s
+ 53507   434 infeasible   34        15.00000    7.00000  53.3%   500  346s
+ 55083   418    7.00000   28  132   15.00000    7.00000  53.3%   500  354s
+ 56739   303 infeasible   30        15.00000    7.00000  53.3%   499  361s
+ 58173   359 infeasible   32        15.00000    7.00000  53.3%   498  369s
+ 59215   330    7.00000   29  180   15.00000    7.00000  53.3%   501  377s
+ 60799   291    7.00000   30  118   15.00000    7.00000  53.3%   501  386s
+ 62041   246 infeasible   29        15.00000    7.00000  53.3%   502  394s
+ 63601   212    7.00000   29  166   15.00000    7.00000  53.3%   501  402s
+ 65349   138 infeasible   36        15.00000    7.00000  53.3%   500  410s
+ 66666   105    7.00000   34   97   15.00000    7.00000  53.3%   499  417s
+ 67964    55 infeasible   33        15.00000    7.00000  53.3%   498  423s
+ 69043    21    7.00000   39  138   15.00000    7.00000  53.3%   497  429s
+ 70045     0   11.13333   40  141   15.00000    7.00000  53.3%   496  431s
+
+Explored 70266 nodes (34832134 simplex iterations) in 431.35 seconds
+Thread count was 16 (of 16 available processors)
+
+Solution count 1: 15 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.500000000000e+01, best bound 1.500000000000e+01, gap 0.0000%
+
+User-callback calls 178121, time in user-callback 0.61 sec
+Maximum cut handled : 0
+Total user cut in the cutpool : 0
